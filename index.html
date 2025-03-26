@@ -117,36 +117,48 @@
       color: #1abc9c;
       margin-right: 8px;
     }
-    /* Groupes de missions */
-    .missions-group {
-      margin-bottom: 20px;
-      border-left: 4px solid #1abc9c;
-      padding-left: 15px;
-      background: #f9fafb;
-      border-radius: 4px;
-    }
-    .missions-group h3 {
-      background: #ecf0f1;
-      padding: 8px 12px;
-      border-radius: 3px;
-      font-size: 1.1em;
-      color: #2c3e50;
+    /* Système d'onglets pour les missions */
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ecf0f1;
       margin-bottom: 10px;
     }
-    .missions-group ul {
+    .tab-link {
+      padding: 10px 20px;
+      background: #ecf0f1;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95em;
+      transition: background 0.3s;
+      margin-right: 5px;
+      border-radius: 4px 4px 0 0;
+    }
+    .tab-link.active, .tab-link:hover {
+      background: #1abc9c;
+      color: #fff;
+    }
+    .tab-content {
+      display: none;
+      padding: 10px;
+      background: #f9fafb;
+      border: 1px solid #ecf0f1;
+      border-radius: 0 4px 4px 4px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .tab-content ul {
       list-style: none;
       margin-left: 10px;
     }
-    .missions-group li {
+    .tab-content li {
       margin-bottom: 6px;
-      font-size: 0.95em;
       padding: 6px;
       border-radius: 4px;
       transition: background 0.3s;
       position: relative;
     }
-    /* Icône avant chaque mission */
-    .missions-group li::before {
+    .tab-content li::before {
       content: "✔";
       position: absolute;
       left: -22px;
@@ -155,7 +167,7 @@
       color: #1abc9c;
       font-size: 0.9em;
     }
-    .missions-group li:hover {
+    .tab-content li:hover {
       background: #e7f9f2;
     }
     /* Pied de page */
@@ -259,24 +271,26 @@
           <li>Traiter des demandes concernant les applications</li>
         </ul>
       </div>
-      <!-- Répartition des missions dans la section -->
-      <div class="missions-group">
-        <h3>Formation – 1ère année</h3>
+      <!-- Système d'onglets pour les missions -->
+      <div class="tabs">
+        <button class="tab-link active" data-tab="tab1">Formation – 1ère année</button>
+        <button class="tab-link" data-tab="tab2">Formation – 2ème année</button>
+        <button class="tab-link" data-tab="tab3">Stage – Seconde année</button>
+      </div>
+      <div id="tab1" class="tab-content active">
         <ul>
           <li>Suivi_de_connectivite_protocoles</li>
           <li>Virus_Hunter</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 2ème année</h3>
+      <div id="tab2" class="tab-content">
         <ul>
           <li>Mise en place d’EtherChannel</li>
           <li>Protocole-CHAP-et-VPN</li>
           <li>Grafana-Loki-Log</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Stage – Seconde année</h3>
+      <div id="tab3" class="tab-content">
         <ul>
           <li>Creation_Serveur_Web_Securise</li>
           <li>Conception d'un Chatbot</li>
@@ -404,5 +418,22 @@
       <p>Consultez le portfolio complet via <a href="https://docs.google.com/spreadsheets/d/1a8tKS5nI0IlGlK_e2L84VutDc4v0WVzF/edit?usp=sharing" target="_blank">Google Sheets</a></p>
     </footer>
   </div>
+
+  <!-- Script pour le système d'onglets -->
+  <script>
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Supprime la classe active de tous les onglets et contenus
+        tabLinks.forEach(item => item.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        // Active l'onglet cliqué et le contenu correspondant
+        link.classList.add('active');
+        document.getElementById(link.getAttribute('data-tab')).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
