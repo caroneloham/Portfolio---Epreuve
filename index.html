@@ -117,6 +117,35 @@
       color: #1abc9c;
       margin-right: 8px;
     }
+    /* Missions – style commun */
+    .missions-group {
+      margin-bottom: 20px;
+      border-left: 4px solid #1abc9c;
+      padding-left: 15px;
+      background: #f9fafb;
+      border-radius: 4px;
+    }
+    .missions-group h3 {
+      background: #ecf0f1;
+      padding: 8px 12px;
+      border-radius: 3px;
+      font-size: 1.1em;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    .missions-group ul {
+      list-style: none;
+      margin-left: 10px;
+    }
+    .missions-group li {
+      margin-bottom: 6px;
+      padding: 6px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .missions-group li:hover {
+      background: #e7f9f2;
+    }
     /* Système d'onglets pour les missions */
     .tabs {
       display: flex;
@@ -156,16 +185,6 @@
       padding: 6px;
       border-radius: 4px;
       transition: background 0.3s;
-      position: relative;
-    }
-    .tab-content li::before {
-      content: "✔";
-      position: absolute;
-      left: -22px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #1abc9c;
-      font-size: 0.9em;
     }
     .tab-content li:hover {
       background: #e7f9f2;
@@ -196,7 +215,7 @@
     <ul>
       <li><a href="#cat1">Gérer le patrimoine informatique</a></li>
       <li><a href="#cat2">Répondre aux incidents &amp; demandes</a></li>
-      <li><a href="#cat3">Présence en ligne</a></li>
+      <li><a href="#cat3">Développer la présence en ligne</a></li>
       <li><a href="#cat4">Travailler en mode projet</a></li>
       <li><a href="#cat5">Service informatique</a></li>
       <li><a href="#cat6">Développement pro</a></li>
@@ -231,7 +250,6 @@
           <li>Vérifier le respect des règles d’utilisation des ressources numériques</li>
         </ul>
       </div>
-      <!-- Missions pour "Gérer le patrimoine informatique" -->
       <div class="missions-group">
         <h3>Formation – 1ère année</h3>
         <ul>
@@ -271,26 +289,25 @@
           <li>Traiter des demandes concernant les applications</li>
         </ul>
       </div>
-      <!-- Système d'onglets pour les missions -->
       <div class="tabs">
-        <button class="tab-link active" data-tab="tab1">Formation – 1ère année</button>
-        <button class="tab-link" data-tab="tab2">Formation – 2ème année</button>
-        <button class="tab-link" data-tab="tab3">Stage – Seconde année</button>
+        <button class="tab-link active" data-tab="tab2-1">Formation – 1ère année</button>
+        <button class="tab-link" data-tab="tab2-2">Formation – 2ème année</button>
+        <button class="tab-link" data-tab="tab2-3">Stage – Seconde année</button>
       </div>
-      <div id="tab1" class="tab-content active">
+      <div id="tab2-1" class="tab-content active">
         <ul>
           <li>Suivi_de_connectivite_protocoles</li>
           <li>Virus_Hunter</li>
         </ul>
       </div>
-      <div id="tab2" class="tab-content">
+      <div id="tab2-2" class="tab-content">
         <ul>
           <li>Mise en place d’EtherChannel</li>
           <li>Protocole-CHAP-et-VPN</li>
           <li>Grafana-Loki-Log</li>
         </ul>
       </div>
-      <div id="tab3" class="tab-content">
+      <div id="tab2-3" class="tab-content">
         <ul>
           <li>Creation_Serveur_Web_Securise</li>
           <li>Conception d'un Chatbot</li>
@@ -311,17 +328,16 @@
           <li>Participer à l’évolution d’un site Web exploitant les données de l’organisation</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 1ère année</h3>
-        <ul><!-- Missions à venir --></ul>
+      <div class="tabs">
+        <button class="tab-link active" data-tab="tab3-1">Missions</button>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 2ème année</h3>
-        <ul><!-- Missions à venir --></ul>
-      </div>
-      <div class="missions-group">
-        <h3>Stage – Seconde année</h3>
-        <ul><!-- Missions à venir --></ul>
+      <div id="tab3-1" class="tab-content active">
+        <ul>
+          <li>Proposition_Solution_Hebergement</li>
+          <li>Portfolio</li>
+          <li>Server-Web</li>
+          <li>Creation_Serveur_Web_Securise</li>
+        </ul>
       </div>
     </section>
 
@@ -426,10 +442,10 @@
 
     tabLinks.forEach(link => {
       link.addEventListener('click', () => {
-        // Supprime la classe active de tous les onglets et contenus
+        // Supprimer la classe active de tous les onglets et contenus
         tabLinks.forEach(item => item.classList.remove('active'));
         tabContents.forEach(content => content.classList.remove('active'));
-        // Active l'onglet cliqué et le contenu correspondant
+        // Activer l'onglet cliqué et le contenu correspondant
         link.classList.add('active');
         document.getElementById(link.getAttribute('data-tab')).classList.add('active');
       });
