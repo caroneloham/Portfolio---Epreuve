@@ -117,35 +117,6 @@
       color: #1abc9c;
       margin-right: 8px;
     }
-    /* Missions – style commun */
-    .missions-group {
-      margin-bottom: 20px;
-      border-left: 4px solid #1abc9c;
-      padding-left: 15px;
-      background: #f9fafb;
-      border-radius: 4px;
-    }
-    .missions-group h3 {
-      background: #ecf0f1;
-      padding: 8px 12px;
-      border-radius: 3px;
-      font-size: 1.1em;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-    .missions-group ul {
-      list-style: none;
-      margin-left: 10px;
-    }
-    .missions-group li {
-      margin-bottom: 6px;
-      padding: 6px;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
-    .missions-group li:hover {
-      background: #e7f9f2;
-    }
     /* Système d'onglets pour les missions */
     .tabs {
       display: flex;
@@ -250,29 +221,31 @@
           <li>Vérifier le respect des règles d’utilisation des ressources numériques</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 1ère année</h3>
+      <div class="tabs">
+        <button class="tab-link active" data-tab="tab1-1">Formation – 1ère année</button>
+        <button class="tab-link" data-tab="tab1-2">Formation – 2ème année</button>
+        <button class="tab-link" data-tab="tab1-3">Stage – Première année</button>
+        <button class="tab-link" data-tab="tab1-4">Stage – Seconde année</button>
+      </div>
+      <div id="tab1-1" class="tab-content active">
         <ul>
           <li>Configuration_Serveur_Windows_2008R2</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 2ème année</h3>
+      <div id="tab1-2" class="tab-content">
         <ul>
           <li>GLPI</li>
           <li>Pfsense</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Stage – Première année</h3>
+      <div id="tab1-3" class="tab-content">
         <ul>
           <li>Rapport de pentest</li>
           <li>Audit de sécurité avec l'ia</li>
           <li>Automatisation de taches d'administration via script python</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Stage – Seconde année</h3>
+      <div id="tab1-4" class="tab-content">
         <ul>
           <li>Automatisation EDR Tehtris – Développement Python</li>
         </ul>
@@ -351,17 +324,14 @@
           <li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 1ère année</h3>
-        <ul><!-- Missions à venir --></ul>
+      <!-- Aucun onglet de missions pour cette catégorie pour l'instant -->
+      <div class="tabs">
+        <button class="tab-link active" data-tab="tab4-1">Missions à venir</button>
       </div>
-      <div class="missions-group">
-        <h3>Stage – Première année</h3>
-        <ul><!-- Missions à venir --></ul>
-      </div>
-      <div class="missions-group">
-        <h3>Stage – Seconde année</h3>
-        <ul><!-- Missions à venir --></ul>
+      <div id="tab4-1" class="tab-content active">
+        <ul>
+          <!-- Missions à venir -->
+        </ul>
       </div>
     </section>
 
@@ -375,17 +345,13 @@
           <li>Accompagner les utilisateurs dans la mise en place d’un service</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 1ère année</h3>
-        <ul><!-- Missions à venir --></ul>
+      <div class="tabs">
+        <button class="tab-link active" data-tab="tab5-1">Missions à venir</button>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 2ème année</h3>
-        <ul><!-- Missions à venir --></ul>
-      </div>
-      <div class="missions-group">
-        <h3>Stage – Seconde année</h3>
-        <ul><!-- Missions à venir --></ul>
+      <div id="tab5-1" class="tab-content active">
+        <ul>
+          <!-- Missions à venir -->
+        </ul>
       </div>
     </section>
 
@@ -400,21 +366,13 @@
           <li>Développer son projet professionnel</li>
         </ul>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 1ère année</h3>
-        <ul><!-- Missions à venir --></ul>
+      <div class="tabs">
+        <button class="tab-link active" data-tab="tab6-1">Missions à venir</button>
       </div>
-      <div class="missions-group">
-        <h3>Formation – 2ème année</h3>
-        <ul><!-- Missions à venir --></ul>
-      </div>
-      <div class="missions-group">
-        <h3>Stage – Première année</h3>
-        <ul><!-- Missions à venir --></ul>
-      </div>
-      <div class="missions-group">
-        <h3>Stage – Seconde année</h3>
-        <ul><!-- Missions à venir --></ul>
+      <div id="tab6-1" class="tab-content active">
+        <ul>
+          <!-- Missions à venir -->
+        </ul>
       </div>
     </section>
 
@@ -442,12 +400,13 @@
 
     tabLinks.forEach(link => {
       link.addEventListener('click', () => {
-        // Supprimer la classe active de tous les onglets et contenus
-        tabLinks.forEach(item => item.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
-        // Activer l'onglet cliqué et le contenu correspondant
+        // Supprime la classe active de tous les onglets et contenus dans le même parent
+        let parentTabs = link.parentElement.parentElement;
+        parentTabs.querySelectorAll('.tab-link').forEach(item => item.classList.remove('active'));
+        parentTabs.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        // Active l'onglet cliqué et le contenu correspondant
         link.classList.add('active');
-        document.getElementById(link.getAttribute('data-tab')).classList.add('active');
+        parentTabs.querySelector('#' + link.getAttribute('data-tab')).classList.add('active');
       });
     });
   </script>
