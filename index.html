@@ -302,12 +302,17 @@
         </ul>
       </div>
       <div class="tabs">
-        <button class="tab-link active" data-tab="tab3-1">Missions</button>
+        <button class="tab-link active" data-tab="tab3-1">Formation – 1ère année</button>
+        <button class="tab-link" data-tab="tab3-2">Formation – 2ème année</button>
       </div>
       <div id="tab3-1" class="tab-content active">
         <ul>
           <li>Proposition_Solution_Hebergement</li>
           <li>Portfolio</li>
+        </ul>
+      </div>
+      <div id="tab3-2" class="tab-content">
+        <ul>
           <li>Server-Web</li>
           <li>Creation_Serveur_Web_Securise</li>
         </ul>
@@ -324,7 +329,6 @@
           <li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li>
         </ul>
       </div>
-      <!-- Aucun onglet de missions pour cette catégorie pour l'instant -->
       <div class="tabs">
         <button class="tab-link active" data-tab="tab4-1">Missions à venir</button>
       </div>
@@ -400,11 +404,11 @@
 
     tabLinks.forEach(link => {
       link.addEventListener('click', () => {
-        // Supprime la classe active de tous les onglets et contenus dans le même parent
+        // Sélectionne le conteneur parent de l'ensemble des onglets
         let parentTabs = link.parentElement.parentElement;
         parentTabs.querySelectorAll('.tab-link').forEach(item => item.classList.remove('active'));
         parentTabs.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-        // Active l'onglet cliqué et le contenu correspondant
+        // Active l'onglet cliqué et son contenu associé
         link.classList.add('active');
         parentTabs.querySelector('#' + link.getAttribute('data-tab')).classList.add('active');
       });
