@@ -14,7 +14,7 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #333;
-      background: #f8f8f8;
+      background: #f0f2f5;
       display: flex;
     }
     a {
@@ -34,7 +34,7 @@
       left: 0;
       width: 260px;
       height: 100vh;
-      background: #34495e;
+      background: #2c3e50;
       color: #ecf0f1;
       padding: 20px;
       overflow-y: auto;
@@ -95,8 +95,8 @@
       margin-bottom: 60px;
       background: #fff;
       padding: 20px 30px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .category-section h2 {
       color: #2980b9;
@@ -120,6 +120,10 @@
     /* Groupes de missions */
     .missions-group {
       margin-bottom: 20px;
+      border-left: 4px solid #1abc9c;
+      padding-left: 15px;
+      background: #f9fafb;
+      border-radius: 4px;
     }
     .missions-group h3 {
       background: #ecf0f1;
@@ -131,11 +135,28 @@
     }
     .missions-group ul {
       list-style: none;
-      margin-left: 20px;
+      margin-left: 10px;
     }
     .missions-group li {
       margin-bottom: 6px;
       font-size: 0.95em;
+      padding: 6px;
+      border-radius: 4px;
+      transition: background 0.3s;
+      position: relative;
+    }
+    /* Icône avant chaque mission */
+    .missions-group li::before {
+      content: "✔";
+      position: absolute;
+      left: -22px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #1abc9c;
+      font-size: 0.9em;
+    }
+    .missions-group li:hover {
+      background: #e7f9f2;
     }
     /* Pied de page */
     footer {
@@ -157,7 +178,7 @@
   </style>
 </head>
 <body>
-  <!-- Barre de navigation verticale -->
+  <!-- Barre de navigation -->
   <nav class="sidebar">
     <h2>Menu</h2>
     <ul>
@@ -228,7 +249,7 @@
       </div>
     </section>
 
-    <!-- Les autres catégories restent prêtes pour une évolution ultérieure -->
+    <!-- Les autres catégories restent prêtes pour évolution -->
     <section id="cat2" class="category-section">
       <h2>Répondre aux incidents et aux demandes d’assistance et d’évolution</h2>
       <div class="competences">
@@ -362,8 +383,4 @@
     </section>
 
     <footer>
-      <p>Consultez le portfolio complet via <a href="https://docs.google.com/spreadsheets/d/1a8tKS5nI0IlGlK_e2L84VutDc4v0WVzF/edit?usp=sharing" target="_blank">Google Sheets</a></p>
-    </footer>
-  </div>
-</body>
-</html>
+      <p>Consultez le portfolio complet via <a href="https://docs.google.com/spreadsheets/d/1
