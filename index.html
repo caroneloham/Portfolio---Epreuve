@@ -16,6 +16,7 @@
       color: #333;
       background: #f0f2f5;
       display: flex;
+      flex-direction: column;
     }
     a {
       text-decoration: none;
@@ -77,7 +78,6 @@
       margin-left: 280px;
       padding: 30px;
       width: calc(100% - 280px);
-      overflow-x: hidden;
     }
     header {
       margin-bottom: 40px;
@@ -162,6 +162,24 @@
     .tab-content li:hover {
       background: #e7f9f2;
     }
+    /* Section des graphiques */
+    #charts {
+      margin: 40px 0;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #charts h2 {
+      margin-bottom: 20px;
+      color: #2980b9;
+    }
+    #charts .chart-container {
+      width: 45%;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 5%;
+    }
     /* Pied de page */
     footer {
       text-align: center;
@@ -178,8 +196,14 @@
         margin-left: 240px;
         width: calc(100% - 240px);
       }
+      #charts .chart-container {
+        width: 100%;
+        margin: 0 0 20px 0;
+      }
     }
   </style>
+  <!-- Intégration de Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <!-- Barre de navigation -->
@@ -305,26 +329,10 @@
       <!-- Formation – 2ème année -->
       <div id="tab2-2" class="tab-content">
         <ul>
-          <li>
-            <a href="https://drive.google.com/drive/folders/1UTFWNEI982Ged_8h2tWShmg3tLuBfjqE?usp=drive_link" target="_blank">
-              Mise en place d’EtherChannel
-            </a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/drive/folders/11hz13h7FVv83CUQz0NF9E6ixovd6EHkY?usp=drive_link" target="_blank">
-              Protocole-CHAP-et-VPN
-            </a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/drive/folders/10dONwIyYaMzkZkPd8uw2fppFlDs2-GuX?usp=drive_link" target="_blank">
-              Grafana-Loki-Log
-            </a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/drive/folders/1nrke7BBBdMfNnUOZ7asXKzJrVsNqfWiK?usp=drive_link" target="_blank">
-              ACL
-            </a>
-          </li>
+          <li><a href="https://drive.google.com/drive/folders/1UTFWNEI982Ged_8h2tWShmg3tLuBfjqE?usp=drive_link" target="_blank">Mise en place d’EtherChannel</a></li>
+          <li><a href="https://drive.google.com/drive/folders/11hz13h7FVv83CUQz0NF9E6ixovd6EHkY?usp=drive_link" target="_blank">Protocole-CHAP-et-VPN</a></li>
+          <li><a href="https://drive.google.com/drive/folders/10dONwIyYaMzkZkPd8uw2fppFlDs2-GuX?usp=drive_link" target="_blank">Grafana-Loki-Log</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1nrke7BBBdMfNnUOZ7asXKzJrVsNqfWiK?usp=drive_link" target="_blank">ACL</a></li>
         </ul>
       </div>
       <!-- Stage – Seconde année -->
@@ -585,6 +593,17 @@
       </div>
     </section>
 
+    <!-- Section Statistiques des missions -->
+    <section id="charts" class="category-section">
+      <h2>Statistiques des missions</h2>
+      <div class="chart-container">
+        <canvas id="pieChartPeriods"></canvas>
+      </div>
+      <div class="chart-container">
+        <canvas id="pieChartCategories"></canvas>
+      </div>
+    </section>
+
     <!-- Section Parcours Citoyen -->
     <section id="parcours-citoyen" class="category-section">
       <h2>Parcours Citoyen</h2>
@@ -608,6 +627,58 @@
         link.classList.add('active');
         parentTabs.querySelector('#' + link.getAttribute('data-tab')).classList.add('active');
       });
+    });
+  </script>
+
+  <!-- Intégration des graphiques avec Chart.js -->
+  <script>
+    // Graphique 1 : Répartition des missions par période
+    const ctxPeriods = document.getElementById('pieChartPeriods').getContext('2d');
+    const pieChartPeriods = new Chart(ctxPeriods, {
+      type: 'pie',
+      data: {
+        labels: ["Formation – 1ère année", "Formation – 2ème année", "Stage – Première année", "Stage – Seconde année"],
+        datasets: [{
+          data: [20, 20, 15, 25], // Exemple de données, à adapter selon vos chiffres réels
+          backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e74c3c'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' },
+          title: { display: true, text: "Répartition par période" }
+        }
+      }
+    });
+
+    // Graphique 2 : Répartition des missions par grande catégorie
+    const ctxCategories = document.getElementById('pieChartCategories').getContext('2d');
+    const pieChartCategories = new Chart(ctxCategories, {
+      type: 'pie',
+      data: {
+        labels: [
+          "Gérer le patrimoine informatique", 
+          "Répondre aux incidents", 
+          "Développer la présence en ligne", 
+          "Travailler en mode projet", 
+          "Mettre à disposition du service informatique", 
+          "Organiser son développement professionnel"
+        ],
+        datasets: [{
+          data: [9, 10, 4, 3, 15, 5], // Exemple de données, à adapter selon vos statistiques
+          backgroundColor: ['#1abc9c', '#3498db', '#9b59b6', '#f1c40f', '#e67e22', '#e74c3c'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' },
+          title: { display: true, text: "Répartition par catégorie de mission" }
+        }
+      }
     });
   </script>
 </body>
