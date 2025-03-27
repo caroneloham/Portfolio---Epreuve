@@ -1,0 +1,20 @@
+- Nikto v2.1.5
+---------------------------------------------------------------------------
++ Target IP:          10.26.59.234
++ Target Hostname:    10.26.59.234
++ Target Port:        80
++ Start Time:         2024-05-30 12:59:59 (GMT2)
+---------------------------------------------------------------------------
++ Server: Apache
++ Cookie Session created without the httponly flag
++ RFC-1918 IP address found in the 'Session' cookie. The IP is "10.26.59.6".
++ Cookie Locale created without the httponly flag
++ Uncommon header 'x-frame-options' found, with contents: SAMEORIGIN
++ Uncommon header 'x-xss-protection' found, with contents: 1; mode=block
++ No CGI Directories found (use '-C all' to force check all possible dirs)
+Use of each() on hash after insertion without resetting hash iterator results in undefined behavior, Perl interpreter: 0x563b968922a0 at /usr/share/perl5/LW2.pm line 947.
++ Allowed HTTP Methods: GET, POST, OPTIONS, HEAD
++ 6544 items checked: 0 error(s) and 6 item(s) reported on remote host
++ End Time:           2024-05-30 13:00:19 (GMT2) (20 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
