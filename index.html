@@ -180,9 +180,9 @@
       vertical-align: top;
       margin-right: 5%;
     }
-    /* ==============================
-         Nouvelle Mind Map Radiale
-       ============================== */
+    /* =========================
+         Mind Map Radiale Modernisée
+       ========================= */
     .mindmap-container {
       margin: 40px auto;
       width: 600px;
@@ -195,12 +195,11 @@
       width: 100%;
       height: 100%;
     }
-    /* Nœud central */
+    /* Nœud central (cercle) */
     .central-node {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       width: 150px;
       height: 150px;
       background: radial-gradient(circle, #3498db, #2980b9);
@@ -212,13 +211,14 @@
       font-size: 1.3em;
       font-weight: bold;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transform: translate(-50%, -50%);
       transition: transform 0.3s;
     }
     .central-node:hover {
       transform: translate(-50%, -50%) scale(1.05);
     }
-    /* Nœuds enfants */
-    .node {
+    /* Nœuds enfants positionnés radialement (120° entre eux) */
+    .child-node {
       position: absolute;
       width: 130px;
       padding: 12px 15px;
@@ -230,26 +230,29 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       transition: transform 0.3s;
     }
-    .node:hover {
+    .child-node:hover {
       transform: scale(1.05);
     }
-    /* Positionnement radial des nœuds enfants */
-    .node1 {
-      top: 10%;
+    /* Positionnement en utilisant des angles fixes */
+    /* Position 1 : en haut */
+    .child-node.node1 {
+      top: 5%;
       left: 50%;
       transform: translate(-50%, 0);
     }
-    .node2 {
-      top: 70%;
-      left: 85%;
-      transform: translate(-50%, -50%);
+    /* Position 2 : en bas à droite */
+    .child-node.node2 {
+      bottom: 5%;
+      right: 10%;
+      transform: translate(0, 0);
     }
-    .node3 {
-      top: 70%;
-      left: 15%;
-      transform: translate(-50%, -50%);
+    /* Position 3 : en bas à gauche */
+    .child-node.node3 {
+      bottom: 5%;
+      left: 10%;
+      transform: translate(0, 0);
     }
-    /* Connexions en SVG */
+    /* Connexions SVG pour lignes radiales */
     .connections {
       position: absolute;
       top: 0;
@@ -258,10 +261,9 @@
       height: 600px;
       pointer-events: none;
     }
-    /* ==============================
+    /* =========================
          Fin de la Mind Map
-       ============================== */
-
+       ========================= */
     /* Section Parcours Citoyen */
     .parcours-block {
       margin-bottom: 20px;
@@ -634,7 +636,7 @@
       </div>
     </section>
 
-    <!-- Section Parcours Citoyen avec Mind Map Radiale améliorée -->
+    <!-- Section Parcours Citoyen avec nouvelle Mind Map Radiale -->
     <section id="parcours-citoyen" class="category-section">
       <h2>Parcours Citoyen</h2>
       <div class="parcours-block">
@@ -655,24 +657,23 @@
           <li><a href="https://www.linkedin.com/groups/12345678" target="_blank">Accéder au groupe LinkedIn</a></li>
         </ul>
       </div>
-      <!-- Mind Map Radiale repensée -->
+      <!-- Nouvelle Mind Map Radiale Modernisée -->
       <h3 style="text-align: center; margin: 20px 0; color: #2980b9;">Mind Map des missions Parcours Citoyen</h3>
       <div class="mindmap-container">
         <div class="mindmap">
           <!-- Nœud central -->
           <div class="central-node">Parcours Citoyen</div>
-          <!-- Nœuds enfants -->
-          <div class="node node1">CA</div>
-          <div class="node node2">Audit de sécurité</div>
-          <div class="node node3">Groupe de sécurité</div>
-          <!-- Lignes de connexion en SVG (calculées pour un diagramme radial) -->
+          <!-- Nœud enfant 1 -->
+          <div class="child-node node1">CA</div>
+          <!-- Nœud enfant 2 -->
+          <div class="child-node node2">Audit de sécurité</div>
+          <!-- Nœud enfant 3 -->
+          <div class="child-node node3">Groupe de sécurité</div>
+          <!-- Lignes de connexion en SVG -->
           <svg class="connections" width="600" height="600" viewBox="0 0 600 600">
-            <!-- Ligne du centre vers CA (positionné en haut-centre) -->
-            <line x1="300" y1="300" x2="300" y2="90" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
-            <!-- Ligne du centre vers Audit de sécurité (positionné en bas-droite) -->
-            <line x1="300" y1="300" x2="480" y2="420" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
-            <!-- Ligne du centre vers Groupe de sécurité (positionné en bas-gauche) -->
-            <line x1="300" y1="300" x2="120" y2="420" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
+            <line x1="300" y1="300" x2="300" y2="100" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
+            <line x1="300" y1="300" x2="500" y2="450" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
+            <line x1="300" y1="300" x2="100" y2="450" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </div>
       </div>
