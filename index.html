@@ -180,6 +180,18 @@
       vertical-align: top;
       margin-right: 5%;
     }
+    /* Styles pour les blocs de Parcours Citoyen */
+    .parcours-block {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ecf0f1;
+      border-radius: 4px;
+      background: #f9fafb;
+    }
+    .parcours-block h3 {
+      margin-bottom: 10px;
+      color: #2980b9;
+    }
     /* Pied de page */
     footer {
       text-align: center;
@@ -329,10 +341,26 @@
       <!-- Formation – 2ème année -->
       <div id="tab2-2" class="tab-content">
         <ul>
-          <li><a href="https://drive.google.com/drive/folders/1UTFWNEI982Ged_8h2tWShmg3tLuBfjqE?usp=drive_link" target="_blank">Mise en place d’EtherChannel</a></li>
-          <li><a href="https://drive.google.com/drive/folders/11hz13h7FVv83CUQz0NF9E6ixovd6EHkY?usp=drive_link" target="_blank">Protocole-CHAP-et-VPN</a></li>
-          <li><a href="https://drive.google.com/drive/folders/10dONwIyYaMzkZkPd8uw2fppFlDs2-GuX?usp=drive_link" target="_blank">Grafana-Loki-Log</a></li>
-          <li><a href="https://drive.google.com/drive/folders/1nrke7BBBdMfNnUOZ7asXKzJrVsNqfWiK?usp=drive_link" target="_blank">ACL</a></li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/1UTFWNEI982Ged_8h2tWShmg3tLuBfjqE?usp=drive_link" target="_blank">
+              Mise en place d’EtherChannel
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/11hz13h7FVv83CUQz0NF9E6ixovd6EHkY?usp=drive_link" target="_blank">
+              Protocole-CHAP-et-VPN
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/10dONwIyYaMzkZkPd8uw2fppFlDs2-GuX?usp=drive_link" target="_blank">
+              Grafana-Loki-Log
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/1nrke7BBBdMfNnUOZ7asXKzJrVsNqfWiK?usp=drive_link" target="_blank">
+              ACL
+            </a>
+          </li>
         </ul>
       </div>
       <!-- Stage – Seconde année -->
@@ -577,13 +605,9 @@
           <li><a href="Certifications/Réseaux/ccna_introduction_networks.pdf" target="_blank">ccna_introduction_networks.pdf</a></li>
         </ul>
       </div>
-      <!-- IFRAME supplémentaire (en dessous des missions) -->
-      <iframe
-        src="https://docs.google.com/presentation/d/13mpALw9ayBz3M4laZTh2U3y3ICnXoJXc/embed?start=false&loop=false&delayms=3000"
-        frameborder="0"
-        width="960"
-        height="569"
-        allowfullscreen="true">
+      <!-- IFrame ajouté sous les onglets -->
+      <iframe src="https://docs.google.com/presentation/d/13mpALw9ayBz3M4laZTh2U3y3ICnXoJXc/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" width="960" height="569" allowfullscreen="true">
       </iframe>
     </section>
 
@@ -598,18 +622,36 @@
     <!-- Section Parcours Citoyen -->
     <section id="parcours-citoyen" class="category-section">
       <h2>Parcours Citoyen</h2>
-      <ul>
-        <li>
-          <a href="Engagement_etudiant/lettre_de_recommandation-2.pdf" target="_blank">
-            Certificat de participation au conseil d'administration
-          </a>
-        </li>
-        <li>
-          <a href="Engagement_etudiant/recommandations 3.pdf" target="_blank">
-            Deuxième lettre de recommandation suite à un audit de sécurité
-          </a>
-        </li>
-      </ul>
+      <div class="parcours-block">
+        <h3>Conseil d'administration (CA)</h3>
+        <ul>
+          <li>
+            <a href="Engagement_etudiant/lettre_de_recommandation-2.pdf" target="_blank">
+              Certificat de participation au conseil d'administration
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="parcours-block">
+        <h3>Audit de sécurité pour la région</h3>
+        <ul>
+          <li>
+            <a href="Engagement_etudiant/recommandations 3.pdf" target="_blank">
+              Deuxième lettre de recommandation suite à un audit de sécurité
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="parcours-block">
+        <h3>Groupe de sécurité informatique LinkedIn</h3>
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/groups/12345678" target="_blank">
+              Accéder au groupe LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <footer>
@@ -641,7 +683,7 @@
         data: {
           labels: ["Formation – 1ère année", "Formation – 2ème année", "Stage – Première année", "Stage – Seconde année"],
           datasets: [{
-            data: [20, 20, 15, 25], // Exemple, à ajuster selon vos statistiques
+            data: [20, 20, 15, 25], // Exemple de données, à adapter selon vos statistiques
             backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e74c3c'],
             borderWidth: 1
           }]
