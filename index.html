@@ -180,102 +180,88 @@
       vertical-align: top;
       margin-right: 5%;
     }
-    /* =========================
-         Mind Map Radiale Modernisée
-       ========================= */
-    .mindmap-container {
+    /* ================================
+         Nouvelle Timeline pour Parcours Citoyen
+       ================================ */
+    .timeline {
+      position: relative;
+      max-width: 600px;
       margin: 40px auto;
-      width: 600px;
-      height: 600px;
-      position: relative;
-      background: #fff;
+      padding: 20px 0;
     }
-    .mindmap {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    /* Nœud central (cercle) */
-    .central-node {
+    .timeline::after {
+      content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, #3498db, #2980b9);
-      border-radius: 50%;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.3em;
-      font-weight: bold;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      transform: translate(-50%, -50%);
-      transition: transform 0.3s;
-    }
-    .central-node:hover {
-      transform: translate(-50%, -50%) scale(1.05);
-    }
-    /* Nœuds enfants positionnés radialement (120° entre eux) */
-    .child-node {
-      position: absolute;
-      width: 130px;
-      padding: 12px 15px;
-      background: linear-gradient(135deg, #1abc9c, #16a085);
-      color: #fff;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 1.1em;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      transition: transform 0.3s;
-    }
-    .child-node:hover {
-      transform: scale(1.05);
-    }
-    /* Positionnement en utilisant des angles fixes */
-    /* Position 1 : en haut */
-    .child-node.node1 {
-      top: 5%;
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-    /* Position 2 : en bas à droite */
-    .child-node.node2 {
-      bottom: 5%;
-      right: 10%;
-      transform: translate(0, 0);
-    }
-    /* Position 3 : en bas à gauche */
-    .child-node.node3 {
-      bottom: 5%;
-      left: 10%;
-      transform: translate(0, 0);
-    }
-    /* Connexions SVG pour lignes radiales */
-    .connections {
-      position: absolute;
+      width: 4px;
+      background-color: #2980b9;
       top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: #fff;
+      border: 4px solid #2980b9;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    /* Position items left */
+    .timeline-item.left {
       left: 0;
-      width: 600px;
-      height: 600px;
-      pointer-events: none;
     }
-    /* =========================
-         Fin de la Mind Map
-       ========================= */
-    /* Section Parcours Citoyen */
-    .parcours-block {
-      margin-bottom: 20px;
-      padding: 10px;
-      border: 1px solid #ecf0f1;
-      border-radius: 4px;
-      background: #f9fafb;
+    .timeline-item.left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      right: 30px;
+      border: medium solid #2980b9;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent #2980b9;
     }
-    .parcours-block h3 {
-      margin-bottom: 10px;
-      color: #2980b9;
+    /* Position items right */
+    .timeline-item.right {
+      left: 50%;
     }
+    .timeline-item.right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      left: 30px;
+      border: medium solid #2980b9;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #2980b9 transparent transparent;
+    }
+    .timeline-content {
+      padding: 20px;
+      background-color: #1abc9c;
+      position: relative;
+      border-radius: 6px;
+      color: #fff;
+    }
+    .timeline-item.right .timeline-content {
+      background: #16a085;
+    }
+    .timeline-item.left .timeline-content:hover,
+    .timeline-item.right .timeline-content:hover {
+      background: #148f77;
+    }
+    /* ================================
+         Fin de la Timeline
+       ================================ */
+
     /* Pied de page */
     footer {
       text-align: center;
@@ -296,9 +282,22 @@
         width: 100%;
         margin: 0 0 20px 0;
       }
-      .mindmap-container {
-        width: 90%;
-        height: auto;
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      .timeline-item.right {
+        left: 0%;
+      }
+      .timeline-item::before {
+        left: 60px;
+        border: medium solid #2980b9;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #2980b9 transparent transparent;
+      }
+      .timeline::after {
+        left: 30px;
       }
     }
   </style>
@@ -636,7 +635,7 @@
       </div>
     </section>
 
-    <!-- Section Parcours Citoyen avec nouvelle Mind Map Radiale -->
+    <!-- Section Parcours Citoyen avec Timeline -->
     <section id="parcours-citoyen" class="category-section">
       <h2>Parcours Citoyen</h2>
       <div class="parcours-block">
@@ -657,24 +656,26 @@
           <li><a href="https://www.linkedin.com/groups/12345678" target="_blank">Accéder au groupe LinkedIn</a></li>
         </ul>
       </div>
-      <!-- Nouvelle Mind Map Radiale Modernisée -->
-      <h3 style="text-align: center; margin: 20px 0; color: #2980b9;">Mind Map des missions Parcours Citoyen</h3>
-      <div class="mindmap-container">
-        <div class="mindmap">
-          <!-- Nœud central -->
-          <div class="central-node">Parcours Citoyen</div>
-          <!-- Nœud enfant 1 -->
-          <div class="child-node node1">CA</div>
-          <!-- Nœud enfant 2 -->
-          <div class="child-node node2">Audit de sécurité</div>
-          <!-- Nœud enfant 3 -->
-          <div class="child-node node3">Groupe de sécurité</div>
-          <!-- Lignes de connexion en SVG -->
-          <svg class="connections" width="600" height="600" viewBox="0 0 600 600">
-            <line x1="300" y1="300" x2="300" y2="100" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
-            <line x1="300" y1="300" x2="500" y2="450" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
-            <line x1="300" y1="300" x2="100" y2="450" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
-          </svg>
+      <!-- Nouvelle Timeline pour présenter les missions -->
+      <h3 style="text-align: center; margin: 20px 0; color: #2980b9;">Timeline des missions</h3>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h4>CA</h4>
+            <p>Participation au conseil d'administration.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h4>Audit de sécurité</h4>
+            <p>Deuxième lettre de recommandation suite à un audit de sécurité.</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h4>Groupe de sécurité</h4>
+            <p>Participation au groupe LinkedIn dédié à la sécurité informatique.</p>
+          </div>
         </div>
       </div>
     </section>
