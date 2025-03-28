@@ -329,10 +329,26 @@
       <!-- Formation – 2ème année -->
       <div id="tab2-2" class="tab-content">
         <ul>
-          <li><a href="https://drive.google.com/drive/folders/1UTFWNEI982Ged_8h2tWShmg3tLuBfjqE?usp=drive_link" target="_blank">Mise en place d’EtherChannel</a></li>
-          <li><a href="https://drive.google.com/drive/folders/11hz13h7FVv83CUQz0NF9E6ixovd6EHkY?usp=drive_link" target="_blank">Protocole-CHAP-et-VPN</a></li>
-          <li><a href="https://drive.google.com/drive/folders/10dONwIyYaMzkZkPd8uw2fppFlDs2-GuX?usp=drive_link" target="_blank">Grafana-Loki-Log</a></li>
-          <li><a href="https://drive.google.com/drive/folders/1nrke7BBBdMfNnUOZ7asXKzJrVsNqfWiK?usp=drive_link" target="_blank">ACL</a></li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/1UTFWNEI982Ged_8h2tWShmg3tLuBfjqE?usp=drive_link" target="_blank">
+              Mise en place d’EtherChannel
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/11hz13h7FVv83CUQz0NF9E6ixovd6EHkY?usp=drive_link" target="_blank">
+              Protocole-CHAP-et-VPN
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/10dONwIyYaMzkZkPd8uw2fppFlDs2-GuX?usp=drive_link" target="_blank">
+              Grafana-Loki-Log
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/1nrke7BBBdMfNnUOZ7asXKzJrVsNqfWiK?usp=drive_link" target="_blank">
+              ACL
+            </a>
+          </li>
         </ul>
       </div>
       <!-- Stage – Seconde année -->
@@ -599,9 +615,6 @@
       <div class="chart-container">
         <canvas id="pieChartPeriods"></canvas>
       </div>
-      <div class="chart-container">
-        <canvas id="pieChartCategories"></canvas>
-      </div>
     </section>
 
     <!-- Section Parcours Citoyen -->
@@ -632,7 +645,7 @@
 
   <!-- Intégration des graphiques avec Chart.js -->
   <script>
-    // Graphique 1 : Répartition des missions par période
+    // Graphique : Répartition des missions par période
     const ctxPeriods = document.getElementById('pieChartPeriods').getContext('2d');
     const pieChartPeriods = new Chart(ctxPeriods, {
       type: 'pie',
@@ -649,34 +662,6 @@
         plugins: {
           legend: { position: 'bottom' },
           title: { display: true, text: "Répartition par période" }
-        }
-      }
-    });
-
-    // Graphique 2 : Répartition des missions par grande catégorie
-    const ctxCategories = document.getElementById('pieChartCategories').getContext('2d');
-    const pieChartCategories = new Chart(ctxCategories, {
-      type: 'pie',
-      data: {
-        labels: [
-          "Gérer le patrimoine informatique", 
-          "Répondre aux incidents", 
-          "Développer la présence en ligne", 
-          "Travailler en mode projet", 
-          "Mettre à disposition du service informatique", 
-          "Organiser son développement professionnel"
-        ],
-        datasets: [{
-          data: [9, 10, 4, 3, 15, 5], // Exemple de données, à adapter selon vos statistiques
-          backgroundColor: ['#1abc9c', '#3498db', '#9b59b6', '#f1c40f', '#e67e22', '#e74c3c'],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { position: 'bottom' },
-          title: { display: true, text: "Répartition par catégorie de mission" }
         }
       }
     });
