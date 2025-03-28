@@ -577,9 +577,17 @@
           <li><a href="Certifications/Réseaux/ccna_introduction_networks.pdf" target="_blank">ccna_introduction_networks.pdf</a></li>
         </ul>
       </div>
+      <!-- IFRAME supplémentaire (en dessous des missions) -->
+      <iframe
+        src="https://docs.google.com/presentation/d/13mpALw9ayBz3M4laZTh2U3y3ICnXoJXc/embed?start=false&loop=false&delayms=3000"
+        frameborder="0"
+        width="960"
+        height="569"
+        allowfullscreen="true">
+      </iframe>
     </section>
 
-    <!-- Section Statistiques des missions (UN SEUL CAMEMBERT) -->
+    <!-- Section Statistiques des missions -->
     <section id="charts" class="category-section">
       <h2>Statistiques des missions</h2>
       <div class="chart-container">
@@ -626,25 +634,27 @@
 
   <!-- Script du camembert pour la répartition par période -->
   <script>
-    const ctxPeriods = document.getElementById('pieChartPeriods').getContext('2d');
-    const pieChartPeriods = new Chart(ctxPeriods, {
-      type: 'pie',
-      data: {
-        labels: ["Formation – 1ère année", "Formation – 2ème année", "Stage – Première année", "Stage – Seconde année"],
-        datasets: [{
-          data: [20, 20, 15, 25], // Exemple, à ajuster selon vos statistiques
-          backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e74c3c'],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { position: 'bottom' },
-          title: { display: true, text: "Répartition par période" }
+    const ctxPeriods = document.getElementById('pieChartPeriods')?.getContext('2d');
+    if (ctxPeriods) {
+      const pieChartPeriods = new Chart(ctxPeriods, {
+        type: 'pie',
+        data: {
+          labels: ["Formation – 1ère année", "Formation – 2ème année", "Stage – Première année", "Stage – Seconde année"],
+          datasets: [{
+            data: [20, 20, 15, 25], // Exemple, à ajuster selon vos statistiques
+            backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e74c3c'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom' },
+            title: { display: true, text: "Répartition par période" }
+          }
         }
-      }
-    });
+      });
+    }
   </script>
 </body>
 </html>
