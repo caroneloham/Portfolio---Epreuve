@@ -31,7 +31,6 @@
     p {
       margin-bottom: 15px;
     }
-
     /* Barre latérale fixe */
     .sidebar {
       position: fixed;
@@ -74,7 +73,6 @@
       font-size: 0.9em;
       color: #bdc3c7;
     }
-
     /* Contenu principal */
     .content {
       margin-left: 280px;
@@ -94,7 +92,6 @@
       font-size: 1.1em;
       color: #7f8c8d;
     }
-
     /* Sections par catégorie */
     .category-section {
       margin-bottom: 60px;
@@ -109,7 +106,6 @@
       padding-bottom: 5px;
       margin-bottom: 15px;
     }
-
     /* Liste des compétences */
     .competences {
       margin-bottom: 20px;
@@ -123,7 +119,6 @@
       color: #1abc9c;
       margin-right: 8px;
     }
-
     /* Système d'onglets */
     .tabs {
       display: flex;
@@ -168,7 +163,6 @@
     .tab-content li:hover {
       background: #e7f9f2;
     }
-
     /* Section des graphiques */
     #charts {
       margin: 40px 0;
@@ -187,15 +181,15 @@
       vertical-align: top;
       margin-right: 5%;
     }
-
-    /* Timeline du Parcours Citoyen */
+    /* ================================
+         Timeline pour Parcours Citoyen
+       ================================ */
     .timeline {
       position: relative;
       max-width: 600px;
       margin: 40px auto;
       padding: 20px 0;
     }
-    /* Ligne centrale */
     .timeline::after {
       content: '';
       position: absolute;
@@ -206,50 +200,34 @@
       left: 50%;
       margin-left: -2px;
     }
-    /* Éléments de la timeline */
     .timeline-item {
       padding: 10px 40px;
       position: relative;
       width: 50%;
     }
-    /* Cercles sur la ligne (centrés) */
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: #fff;
-      border: 4px solid #2980b9;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      z-index: 1;
-    }
-    /* Position à gauche ou à droite */
+    /* Pas de cercles sur la ligne */
     .timeline-item.left {
       left: 0;
     }
     .timeline-item.right {
       left: 50%;
     }
-    /* Bulle de contenu */
     .timeline-content {
       padding: 20px;
       background-color: #1abc9c;
-      position: relative;
       border-radius: 6px;
       color: #fff;
-      margin: 0 0 20px 0;
+      margin-bottom: 20px;
     }
-    /* Variation si item à droite (optionnel) */
     .timeline-item.right .timeline-content {
       background: #16a085;
     }
-    /* Survol */
     .timeline-item .timeline-content:hover {
       background: #148f77;
     }
+    /* ================================
+         Fin de la Timeline
+       ================================ */
 
     /* Pied de page */
     footer {
@@ -258,7 +236,6 @@
       color: #95a5a6;
       margin-top: 40px;
     }
-
     /* Responsive */
     @media (max-width: 768px) {
       .sidebar {
@@ -285,7 +262,6 @@
       }
     }
   </style>
-  <!-- Intégration de Chart.js pour les stats -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -336,14 +312,9 @@
         <button class="tab-link" data-tab="tab1-3">Stage – Première année</button>
         <button class="tab-link" data-tab="tab1-4">Stage – Seconde année</button>
       </div>
-      <!-- Tab content -->
       <div id="tab1-1" class="tab-content active">
         <ul>
-          <li>
-            <a href="https://drive.google.com/drive/folders/1SwRojhW1PCG7Kbs21FpuN7JZaSTlE1t7?usp=drive_link" target="_blank">
-              Configuration_Serveur_Windows_2008R2
-            </a>
-          </li>
+          <li><a href="https://drive.google.com/drive/folders/1SwRojhW1PCG7Kbs21FpuN7JZaSTlE1t7?usp=drive_link" target="_blank">Configuration_Serveur_Windows_2008R2</a></li>
         </ul>
       </div>
       <div id="tab1-2" class="tab-content">
@@ -354,40 +325,16 @@
       </div>
       <div id="tab1-3" class="tab-content">
         <ul>
-          <li>
-            <a href="https://drive.google.com/drive/folders/1xm6KJ0po0waDCISy9Xgz1wmCY_e1Cojl?usp=drive_link" target="_blank">
-              Vérification des imprimantes scolaires
-            </a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/drive/folders/1MOMG5K2v_GUI0YtA0GWhhWK53r7onje5?usp=drive_link" target="_blank">
-              Mise en place de PPMS
-            </a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/drive/folders/15fnRQaOMQw1FY-v7U79BAKCrKdtsXyKJ?usp=drive_link" target="_blank">
-              Rapport_Pentest_Eloham
-            </a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/drive/folders/1nMEoEWuAlEZAiyRRZk-dj9vllV5iXEGW?usp=drive_link" target="_blank">
-              Audit_de_Securite_Reseau_avec_ChatGPT-4o-main
-            </a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/drive/folders/1tZGDYOson8YLI8oj3FgCWeGrm4-Ghf3u?usp=drive_link" target="_blank">
-              Automatisation de taches d'administration via script python
-            </a>
-          </li>
+          <li><a href="https://drive.google.com/drive/folders/1xm6KJ0po0waDCISy9Xgz1wmCY_e1Cojl?usp=drive_link" target="_blank">Vérification des imprimantes scolaires</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1MOMG5K2v_GUI0YtA0GWhhWK53r7onje5?usp=drive_link" target="_blank">Mise en place de PPMS</a></li>
+          <li><a href="https://drive.google.com/drive/folders/15fnRQaOMQw1FY-v7U79BAKCrKdtsXyKJ?usp=drive_link" target="_blank">Rapport_Pentest_Eloham</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1nMEoEWuAlEZAiyRRZk-dj9vllV5iXEGW?usp=drive_link" target="_blank">Audit_de_Securite_Reseau_avec_ChatGPT-4o-main</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1tZGDYOson8YLI8oj3FgCWeGrm4-Ghf3u?usp=drive_link" target="_blank">Automatisation de taches d'administration via script python</a></li>
         </ul>
       </div>
       <div id="tab1-4" class="tab-content">
         <ul>
-          <li>
-            <a href="https://drive.google.com/drive/folders/1dz_tzb78DSu590oOEE_gwK-pR7Ub7mOU?usp=drive_link" target="_blank">
-              Automatisation EDR Tehtris – Développement Python
-            </a>
-          </li>
+          <li><a href="https://drive.google.com/drive/folders/1dz_tzb78DSu590oOEE_gwK-pR7Ub7mOU?usp=drive_link" target="_blank">Automatisation EDR Tehtris – Développement Python</a></li>
         </ul>
       </div>
     </section>
@@ -481,15 +428,9 @@
       <h2>Développer la présence en ligne</h2>
       <div class="competences">
         <ul>
-          <li>
-            Participer à la valorisation de l’image de l’organisation sur les médias numériques
-          </li>
-          <li>
-            Référencer les services en ligne de l’organisation et mesurer leur visibilité
-          </li>
-          <li>
-            Participer à l’évolution d’un site Web exploitant les données de l’organisation
-          </li>
+          <li>Participer à la valorisation de l’image de l’organisation sur les médias numériques</li>
+          <li>Référencer les services en ligne de l’organisation et mesurer leur visibilité</li>
+          <li>Participer à l’évolution d’un site Web exploitant les données de l’organisation</li>
         </ul>
       </div>
       <div class="tabs">
@@ -748,49 +689,133 @@
       </div>
       <div id="certif-tab1" class="tab-content active">
         <ul>
-          <li><a href="Certifications/BUT/Reseaux-d-acces-optiques-ftth.pdf" target="_blank">Reseaux-d-acces-optiques-ftth.pdf</a></li>
-          <li><a href="Certifications/BUT/objectif_ipv6.pdf" target="_blank">objectif_ipv6.pdf</a></li>
+          <li>
+            <a href="Certifications/BUT/Reseaux-d-acces-optiques-ftth.pdf" target="_blank">
+              Reseaux-d-acces-optiques-ftth.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/BUT/objectif_ipv6.pdf" target="_blank">
+              objectif_ipv6.pdf
+            </a>
+          </li>
         </ul>
       </div>
       <div id="certif-tab2" class="tab-content">
         <ul>
-          <li><a href="Certifications/Concours et Attestations/1711308023673.pdf" target="_blank">1711308023673.pdf</a></li>
-          <li><a href="Certifications/Concours et Attestations/Cisco Networking Academy.pdf" target="_blank">Cisco Networking Academy.pdf</a></li>
-          <li><a href="Certifications/Concours et Attestations/Network_Defense_Badge20210427-7-vamysa.pdf" target="_blank">Network_Defense_Badge20210427-7-vamysa.pdf</a></li>
-          <li><a href="Certifications/Concours et Attestations/advent_of_cyber_2023.pdf" target="_blank">advent_of_cyber_2023.pdf</a></li>
-          <li><a href="Certifications/Concours et Attestations/advent_of_cyber_4.pdf" target="_blank">advent_of_cyber_4.pdf</a></li>
+          <li>
+            <a href="Certifications/Concours et Attestations/1711308023673.pdf" target="_blank">
+              1711308023673.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Concours et Attestations/Cisco Networking Academy.pdf" target="_blank">
+              Cisco Networking Academy.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Concours et Attestations/Network_Defense_Badge20210427-7-vamysa.pdf" target="_blank">
+              Network_Defense_Badge20210427-7-vamysa.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Concours et Attestations/advent_of_cyber_2023.pdf" target="_blank">
+              advent_of_cyber_2023.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Concours et Attestations/advent_of_cyber_4.pdf" target="_blank">
+              advent_of_cyber_4.pdf
+            </a>
+          </li>
         </ul>
       </div>
       <div id="certif-tab3" class="tab-content">
         <ul>
-          <li><a href="Certifications/Cybersécurité/CyberOps.pdf" target="_blank">CyberOps.pdf</a></li>
-          <li><a href="Certifications/Cybersécurité/secnumacademie.pdf" target="_blank">secnumacademie.pdf</a></li>
-          <li><a href="Certifications/Cybersécurité/metasploit.pdf" target="_blank">metasploit.pdf</a></li>
-          <li><a href="Certifications/Cybersécurité/wireshark_packet_analysis.pdf" target="_blank">wireshark_packet_analysis.pdf</a></li>
-          <li><a href="Certifications/Cybersécurité/sc200_microsoft_security.pdf" target="_blank">sc200_microsoft_security.pdf</a></li>
-          <li><a href="Certifications/Cybersécurité/Cybersecurity_Essentials_Badge2024-xx-xx.pdf" target="_blank">Cybersecurity_Essentials_Badge2024-xx-xx.pdf</a></li>
-          <li><a href="Certifications/Cybersécurité/Jr_penetratio_tester.pdf" target="_blank">Jr_penetratio_tester.pdf</a></li>
-          <li><a href="Certifications/Cybersécurité/CompTIA_CySA+_(CS0-003).pdf" target="_blank">CompTIA_CySA+_(CS0-003).pdf</a></li>
+          <li>
+            <a href="Certifications/Cybersécurité/CyberOps.pdf" target="_blank">
+              CyberOps.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Cybersécurité/secnumacademie.pdf" target="_blank">
+              secnumacademie.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Cybersécurité/metasploit.pdf" target="_blank">
+              metasploit.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Cybersécurité/wireshark_packet_analysis.pdf" target="_blank">
+              wireshark_packet_analysis.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Cybersécurité/sc200_microsoft_security.pdf" target="_blank">
+              sc200_microsoft_security.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Cybersécurité/Cybersecurity_Essentials_Badge2024-xx-xx.pdf" target="_blank">
+              Cybersecurity_Essentials_Badge2024-xx-xx.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Cybersécurité/Jr_penetratio_tester.pdf" target="_blank">
+              Jr_penetratio_tester.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Cybersécurité/CompTIA_CySA+_(CS0-003).pdf" target="_blank">
+              CompTIA_CySA+_(CS0-003).pdf
+            </a>
+          </li>
         </ul>
       </div>
       <div id="certif-tab4" class="tab-content">
         <ul>
-          <li><a href="Certifications/Developpement/Python_Essentials_1.pdf" target="_blank">Python_Essentials_1.pdf</a></li>
-          <li><a href="Certifications/Developpement/Python_Essentials_2.pdf" target="_blank">Python_Essentials_2.pdf</a></li>
+          <li>
+            <a href="Certifications/Developpement/Python_Essentials_1.pdf" target="_blank">
+              Python_Essentials_1.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Developpement/Python_Essentials_2.pdf" target="_blank">
+              Python_Essentials_2.pdf
+            </a>
+          </li>
         </ul>
       </div>
       <div id="certif-tab5" class="tab-content">
         <ul>
-          <li><a href="Certifications/Réseaux/CCNA2-letter.pdf" target="_blank">CCNA2-letter.pdf</a></li>
-          <li><a href="Certifications/Réseaux/ccna2.pdf" target="_blank">ccna2.pdf</a></li>
-          <li><a href="Certifications/Réseaux/Network_Defense_Badge20241027-7-vamysa.pdf" target="_blank">Network_Defense_Badge20241027-7-vamysa.pdf</a></li>
-          <li><a href="Certifications/Réseaux/ccna_introduction_networks.pdf" target="_blank">ccna_introduction_networks.pdf</a></li>
+          <li>
+            <a href="Certifications/Réseaux/CCNA2-letter.pdf" target="_blank">
+              CCNA2-letter.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Réseaux/ccna2.pdf" target="_blank">
+              ccna2.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Réseaux/Network_Defense_Badge20241027-7-vamysa.pdf" target="_blank">
+              Network_Defense_Badge20241027-7-vamysa.pdf
+            </a>
+          </li>
+          <li>
+            <a href="Certifications/Réseaux/ccna_introduction_networks.pdf" target="_blank">
+              ccna_introduction_networks.pdf
+            </a>
+          </li>
         </ul>
       </div>
-      <iframe
-        src="https://docs.google.com/presentation/d/13mpALw9ayBz3M4laZTh2U3y3ICnXoJXc/embed?start=false&loop=false&delayms=3000"
-        frameborder="0" width="960" height="569" allowfullscreen="true"
-      ></iframe>
+      <iframe 
+        src="https://docs.google.com/presentation/d/13mpALw9ayBz3M4laZTh2U3y3ICnXoJXc/embed?start=false&loop=false&delayms=3000" 
+        frameborder="0" width="960" height="569" allowfullscreen="true">
+      </iframe>
     </section>
 
     <!-- Section Statistiques des missions -->
@@ -801,11 +826,9 @@
       </div>
     </section>
 
-    <!-- Section Parcours Citoyen avec Timeline (sans blocs au-dessus) -->
+    <!-- Section Parcours Citoyen avec Timeline -->
     <section id="parcours-citoyen" class="category-section">
       <h2>Parcours Citoyen</h2>
-
-      <!-- Timeline directement, avec Audit en premier -->
       <div class="timeline">
         <!-- Audit de sécurité en premier -->
         <div class="timeline-item right">
@@ -813,7 +836,7 @@
             <h4>Audit de sécurité</h4>
             <p>
               <a href="Engagement_etudiant/recommandations 3.pdf" target="_blank">
-                Deuxième lettre de recommandation suite à un audit de sécurité
+                Deuxième lettre de recommandation
               </a>
             </p>
           </div>
@@ -824,7 +847,7 @@
             <h4>Conseil d'administration (CA)</h4>
             <p>
               <a href="Engagement_etudiant/lettre_de_recommandation-2.pdf" target="_blank">
-                Participation active au conseil d'administration
+                Participation active
               </a>
             </p>
           </div>
@@ -835,7 +858,7 @@
             <h4>Groupe de sécurité</h4>
             <p>
               <a href="https://www.linkedin.com/groups/12345678" target="_blank">
-                Intégration au groupe LinkedIn dédié à la sécurité informatique
+                Accès au groupe LinkedIn
               </a>
             </p>
           </div>
@@ -845,11 +868,8 @@
 
     <footer>
       <p>
-        Consultez le portfolio complet via
-        <a
-          href="https://docs.google.com/spreadsheets/d/1a8tKS5nI0IlGlK_e2L84VutDc4v0WVzF/edit?usp=drive_link"
-          target="_blank"
-        >
+        Consultez le portfolio complet via 
+        <a href="https://docs.google.com/spreadsheets/d/1a8tKS5nI0IlGlK_e2L84VutDc4v0WVzF/edit?usp=drive_link" target="_blank">
           Google Sheets
         </a>
       </p>
@@ -871,7 +891,7 @@
     });
   </script>
 
-  <!-- Script du camembert (exemple) -->
+  <!-- Script du camembert pour la répartition par période -->
   <script>
     const ctxPeriods = document.getElementById('pieChartPeriods')?.getContext('2d');
     if (ctxPeriods) {
