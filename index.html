@@ -180,79 +180,88 @@
       vertical-align: top;
       margin-right: 5%;
     }
-    /* Sections Cat1 à Cat6 complètes */
-    /* Catégorie 1 : Gérer le patrimoine informatique */
-    #cat1 ul, 
-    #cat2 ul, 
-    #cat3 ul, 
-    #cat4 ul, 
-    #cat5 ul, 
-    #cat6 ul {
-      margin-left: 20px;
-    }
-    /* Nouvelle Mind Map Modernisée */
+    /* ==============================
+         Nouvelle Mind Map Radiale
+       ============================== */
     .mindmap-container {
       margin: 40px auto;
-      max-width: 800px;
+      width: 600px;
+      height: 600px;
       position: relative;
-      padding-top: 80px;
+      background: #fff;
     }
-    /* Bloc central */
-    .central-box {
+    .mindmap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    /* Nœud central */
+    .central-node {
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #3498db, #2980b9);
+      transform: translate(-50%, -50%);
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #3498db, #2980b9);
+      border-radius: 50%;
       color: #fff;
-      padding: 18px 28px;
-      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 1.3em;
       font-weight: bold;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       transition: transform 0.3s;
     }
-    .central-box:hover {
-      transform: translateX(-50%) translateY(-5px);
+    .central-node:hover {
+      transform: translate(-50%, -50%) scale(1.05);
     }
-    /* Connecteur SVG avec courbes élégantes */
-    .connector-svg {
+    /* Nœuds enfants */
+    .node {
       position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      height: 150px;
-    }
-    .connector-svg path {
-      fill: none;
-      stroke: #ccc;
-      stroke-width: 3;
-      stroke-linecap: round;
-    }
-    /* Rangée des boîtes enfants */
-    .child-row {
-      margin-top: 160px;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .child-box {
+      width: 130px;
+      padding: 12px 15px;
       background: linear-gradient(135deg, #1abc9c, #16a085);
       color: #fff;
-      padding: 18px 25px;
-      border-radius: 12px;
+      border-radius: 8px;
       text-align: center;
       font-size: 1.1em;
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
       transition: transform 0.3s;
-      flex: 1;
-      min-width: 150px;
-      max-width: 250px;
     }
-    .child-box:hover {
-      transform: translateY(-5px);
+    .node:hover {
+      transform: scale(1.05);
     }
+    /* Positionnement radial des nœuds enfants */
+    .node1 {
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    .node2 {
+      top: 70%;
+      left: 85%;
+      transform: translate(-50%, -50%);
+    }
+    .node3 {
+      top: 70%;
+      left: 15%;
+      transform: translate(-50%, -50%);
+    }
+    /* Connexions en SVG */
+    .connections {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      pointer-events: none;
+    }
+    /* ==============================
+         Fin de la Mind Map
+       ============================== */
+
     /* Section Parcours Citoyen */
     .parcours-block {
       margin-bottom: 20px;
@@ -285,12 +294,9 @@
         width: 100%;
         margin: 0 0 20px 0;
       }
-      .child-row {
-        flex-direction: column;
-        align-items: center;
-      }
-      .connector-svg {
-        height: 120px;
+      .mindmap-container {
+        width: 90%;
+        height: auto;
       }
     }
   </style>
@@ -628,7 +634,7 @@
       </div>
     </section>
 
-    <!-- Section Parcours Citoyen avec Mind Map Modernisée -->
+    <!-- Section Parcours Citoyen avec Mind Map Radiale améliorée -->
     <section id="parcours-citoyen" class="category-section">
       <h2>Parcours Citoyen</h2>
       <div class="parcours-block">
@@ -649,32 +655,34 @@
           <li><a href="https://www.linkedin.com/groups/12345678" target="_blank">Accéder au groupe LinkedIn</a></li>
         </ul>
       </div>
-      <!-- Nouvelle Mind Map Modernisée -->
+      <!-- Mind Map Radiale repensée -->
       <h3 style="text-align: center; margin: 20px 0; color: #2980b9;">Mind Map des missions Parcours Citoyen</h3>
       <div class="mindmap-container">
-        <!-- Bloc central -->
-        <div class="central-box">Parcours Citoyen</div>
-        <!-- Connecteur SVG avec courbes élégantes -->
-        <svg class="connector-svg" width="100%" height="150" viewBox="0 0 800 150">
-          <!-- Courbe vers le premier enfant -->
-          <path d="M400,70 C300,100 220,130 150,150" stroke="#ccc" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <!-- Courbe vers le deuxième enfant -->
-          <path d="M400,70 C400,100 400,130 400,150" stroke="#ccc" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <!-- Courbe vers le troisième enfant -->
-          <path d="M400,70 C500,100 580,130 650,150" stroke="#ccc" stroke-width="3" fill="none" stroke-linecap="round"/>
-        </svg>
-        <!-- Rangée des boîtes enfants -->
-        <div class="child-row">
-          <div class="child-box">CA</div>
-          <div class="child-box">Audit de sécurité</div>
-          <div class="child-box">Groupe de sécurité</div>
+        <div class="mindmap">
+          <!-- Nœud central -->
+          <div class="central-node">Parcours Citoyen</div>
+          <!-- Nœuds enfants -->
+          <div class="node node1">CA</div>
+          <div class="node node2">Audit de sécurité</div>
+          <div class="node node3">Groupe de sécurité</div>
+          <!-- Lignes de connexion en SVG (calculées pour un diagramme radial) -->
+          <svg class="connections" width="600" height="600" viewBox="0 0 600 600">
+            <!-- Ligne du centre vers CA (positionné en haut-centre) -->
+            <line x1="300" y1="300" x2="300" y2="90" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
+            <!-- Ligne du centre vers Audit de sécurité (positionné en bas-droite) -->
+            <line x1="300" y1="300" x2="480" y2="420" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
+            <!-- Ligne du centre vers Groupe de sécurité (positionné en bas-gauche) -->
+            <line x1="300" y1="300" x2="120" y2="420" stroke="#ccc" stroke-width="3" stroke-linecap="round"/>
+          </svg>
         </div>
       </div>
     </section>
 
     <footer>
       <p>Consultez le portfolio complet via 
-        <a href="https://docs.google.com/spreadsheets/d/1a8tKS5nI0IlGlK_e2L84VutDc4v0WVzF/edit?usp=drive_link" target="_blank">Google Sheets</a>
+        <a href="https://docs.google.com/spreadsheets/d/1a8tKS5nI0IlGlK_e2L84VutDc4v0WVzF/edit?usp=drive_link" target="_blank">
+          Google Sheets
+        </a>
       </p>
     </footer>
   </div>
