@@ -31,6 +31,7 @@
     p {
       margin-bottom: 15px;
     }
+
     /* Barre latérale fixe */
     .sidebar {
       position: fixed;
@@ -73,6 +74,7 @@
       font-size: 0.9em;
       color: #bdc3c7;
     }
+
     /* Contenu principal */
     .content {
       margin-left: 280px;
@@ -92,6 +94,7 @@
       font-size: 1.1em;
       color: #7f8c8d;
     }
+
     /* Sections par catégorie */
     .category-section {
       margin-bottom: 60px;
@@ -106,6 +109,7 @@
       padding-bottom: 5px;
       margin-bottom: 15px;
     }
+
     /* Liste des compétences */
     .competences {
       margin-bottom: 20px;
@@ -119,6 +123,7 @@
       color: #1abc9c;
       margin-right: 8px;
     }
+
     /* Système d'onglets */
     .tabs {
       display: flex;
@@ -162,6 +167,7 @@
     .tab-content li:hover {
       background: #e7f9f2;
     }
+
     /* Section des graphiques */
     #charts {
       margin: 40px 0;
@@ -180,36 +186,45 @@
       vertical-align: top;
       margin-right: 5%;
     }
-    /* Styles pour le Mind Map dans Parcours Citoyen */
+
+    /* Mind Map Parcours Citoyen (nouvelle mise en page) */
     .mindmap-container {
-      position: relative;
-      width: 600px;
-      height: 600px;
       margin: 40px auto;
-      border: 1px dashed #ccc;
-      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .mindmap-container .node {
-      position: absolute;
-      width: 150px;
-      padding: 10px;
-      text-align: center;
+    /* Boîtes de la mind map */
+    .mindmap-box {
       background: #1abc9c;
       color: #fff;
+      padding: 10px 20px;
       border-radius: 8px;
+      text-align: center;
+      margin: 10px;
+      min-width: 150px;
     }
-    .mindmap-container .center {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    /* Couleur spécifique pour le bloc Parcours Citoyen */
+    .mindmap-box#pc {
       background: #3498db;
     }
-    .node1 { top: 0; left: 50%; transform: translate(-50%, 0); }
-    .node2 { top: 25%; left: 90%; transform: translate(-50%, -50%); }
-    .node3 { top: 75%; left: 90%; transform: translate(-50%, -50%); }
-    .node4 { bottom: 0; left: 50%; transform: translate(-50%, 0); }
-    .node5 { top: 75%; left: 10%; transform: translate(-50%, -50%); }
-    .node6 { top: 25%; left: 10%; transform: translate(-50%, -50%); }
+    /* Flèche descendante (simple) */
+    .arrow-down {
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 12px solid #555;
+      margin: 5px auto;
+    }
+    /* Ligne horizontale pour aligner CA, Audit et Groupe */
+    .mindmap-row {
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+      margin-top: 10px;
+    }
+
     /* Section Parcours Citoyen */
     .parcours-block {
       margin-bottom: 20px;
@@ -222,6 +237,7 @@
       margin-bottom: 10px;
       color: #2980b9;
     }
+
     /* Pied de page */
     footer {
       text-align: center;
@@ -229,6 +245,7 @@
       color: #95a5a6;
       margin-top: 40px;
     }
+
     /* Responsive */
     @media (max-width: 768px) {
       .sidebar {
@@ -242,9 +259,10 @@
         width: 100%;
         margin: 0 0 20px 0;
       }
-      .mindmap-container {
-        width: 90%;
-        height: 400px;
+      .mindmap-row {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
       }
     }
   </style>
@@ -352,7 +370,7 @@
 
     <!-- Catégorie 2 : Répondre aux incidents et aux demandes d’assistance et d’évolution -->
     <section id="cat2" class="category-section">
-      <h2>Répondre aux incidents et aux demandes d’assistance et d’évolution</h2>
+      <h2>Répondre aux incidents &amp; demandes</h2>
       <div class="competences">
         <ul>
           <li>Collecter, suivre et orienter des demandes</li>
@@ -415,10 +433,10 @@
 
     <!-- Catégorie 3 : Développer la présence en ligne de l’organisation -->
     <section id="cat3" class="category-section">
-      <h2>Développer la présence en ligne de l’organisation</h2>
+      <h2>Développer la présence en ligne</h2>
       <div class="competences">
         <ul>
-          <li>Participer à la valorisation de l’image de l’organisation sur les médias numériques en tenant compte du cadre juridique et des enjeux économiques</li>
+          <li>Participer à la valorisation de l’image de l’organisation sur les médias numériques</li>
           <li>Référencer les services en ligne de l’organisation et mesurer leur visibilité</li>
           <li>Participer à l’évolution d’un site Web exploitant les données de l’organisation</li>
         </ul>
@@ -475,7 +493,7 @@
 
     <!-- Catégorie 5 : Mettre à disposition des utilisateurs un service informatique -->
     <section id="cat5" class="category-section">
-      <h2>Mettre à disposition des utilisateurs un service informatique</h2>
+      <h2>Mettre à disposition un service</h2>
       <div class="competences">
         <ul>
           <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
@@ -624,11 +642,13 @@
         </ul>
       </div>
       <!-- Iframe Google Slides placé en dessous des onglets -->
-      <iframe src="https://docs.google.com/presentation/d/13mpALw9ayBz3M4laZTh2U3y3ICnXoJXc/embed?start=false&loop=false&delayms=3000" 
-              frameborder="0" width="960" height="569" allowfullscreen="true"></iframe>
+      <iframe 
+        src="https://docs.google.com/presentation/d/13mpALw9ayBz3M4laZTh2U3y3ICnXoJXc/embed?start=false&loop=false&delayms=3000"
+        frameborder="0" width="960" height="569" allowfullscreen="true">
+      </iframe>
     </section>
 
-    <!-- Section Statistiques des missions (déplacée pour apparaître entre Certification et Parcours Citoyen) -->
+    <!-- Section Statistiques des missions (placée après Certification) -->
     <section id="charts" class="category-section">
       <h2>Statistiques des missions</h2>
       <div class="chart-container">
@@ -669,18 +689,28 @@
           </li>
         </ul>
       </div>
-      <!-- Mind Map pour Parcours Citoyen avec modifications -->
+      <!-- Mind Map Parcours Citoyen (nouvelle version) -->
       <h3 style="text-align: center; margin: 20px 0; color: #2980b9;">Mind Map des missions Parcours Citoyen</h3>
       <div class="mindmap-container">
-        <div class="node center">Parcours Citoyen</div>
-        <div class="node node1">CA</div>
-        <div class="node node2">Audit de sécurité</div>
-        <div class="node node3">Groupe de sécurité</div>
+        <!-- Bloc principal -->
+        <div class="mindmap-box" id="pc">Parcours Citoyen</div>
+        <!-- Petite flèche vers la rangée du dessous -->
+        <div class="arrow-down"></div>
+        <!-- Ligne horizontale avec trois boîtes -->
+        <div class="mindmap-row">
+          <div class="mindmap-box">CA</div>
+          <div class="mindmap-box">audit de sécurité</div>
+          <div class="mindmap-box">Groupe de sécurité</div>
+        </div>
       </div>
     </section>
 
     <footer>
-      <p>Consultez le portfolio complet via <a href="https://docs.google.com/spreadsheets/d/1a8tKS5nI0IlGlK_e2L84VutDc4v0WVzF/edit?usp=drive_link" target="_blank">Google Sheets</a></p>
+      <p>Consultez le portfolio complet via 
+        <a href="https://docs.google.com/spreadsheets/d/1a8tKS5nI0IlGlK_e2L84VutDc4v0WVzF/edit?usp=drive_link" target="_blank">
+          Google Sheets
+        </a>
+      </p>
     </footer>
   </div>
 
@@ -708,7 +738,7 @@
         data: {
           labels: ["Formation – 1ère année", "Formation – 2ème année", "Stage – Première année", "Stage – Seconde année"],
           datasets: [{
-            data: [20, 20, 15, 25], // Exemple, à ajuster selon vos statistiques
+            data: [20, 20, 15, 25], // Exemple, à adapter selon vos statistiques
             backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e74c3c'],
             borderWidth: 1
           }]
