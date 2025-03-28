@@ -180,7 +180,7 @@
       vertical-align: top;
       margin-right: 5%;
     }
-    /* Styles pour le Mind Map */
+    /* Styles pour le Mind Map dans Parcours Citoyen */
     .mindmap-container {
       position: relative;
       width: 600px;
@@ -626,25 +626,6 @@
       <!-- Iframe Google Slides placé en dessous des onglets -->
       <iframe src="https://docs.google.com/presentation/d/13mpALw9ayBz3M4laZTh2U3y3ICnXoJXc/embed?start=false&loop=false&delayms=3000" 
               frameborder="0" width="960" height="569" allowfullscreen="true"></iframe>
-      <!-- Mind Map des missions -->
-      <h3 style="text-align: center; margin: 20px 0; color: #2980b9;">Mind Map des missions</h3>
-      <div class="mindmap-container">
-        <div class="node center">Missions</div>
-        <div class="node node1">Gérer le patrimoine<br>informatique</div>
-        <div class="node node2">Répondre aux incidents</div>
-        <div class="node node3">Développer la présence<br>en ligne</div>
-        <div class="node node4">Travailler en mode<br>projet</div>
-        <div class="node node5">Mettre à disposition<br>du service</div>
-        <div class="node node6">Organiser son<br>développement</div>
-      </div>
-    </section>
-
-    <!-- Section Statistiques des missions -->
-    <section id="charts" class="category-section">
-      <h2>Statistiques des missions</h2>
-      <div class="chart-container">
-        <canvas id="pieChartPeriods"></canvas>
-      </div>
     </section>
 
     <!-- Section Parcours Citoyen -->
@@ -680,6 +661,22 @@
           </li>
         </ul>
       </div>
+      <!-- Mind Map pour Parcours Citoyen -->
+      <h3 style="text-align: center; margin: 20px 0; color: #2980b9;">Mind Map des missions Parcours Citoyen</h3>
+      <div class="mindmap-container">
+        <div class="node center">Parcours Citoyen</div>
+        <div class="node node1">CA</div>
+        <div class="node node2">Audit région</div>
+        <div class="node node3">Groupe LinkedIn</div>
+      </div>
+    </section>
+
+    <!-- Section Statistiques des missions -->
+    <section id="charts" class="category-section">
+      <h2>Statistiques des missions</h2>
+      <div class="chart-container">
+        <canvas id="pieChartPeriods"></canvas>
+      </div>
     </section>
 
     <footer>
@@ -711,7 +708,7 @@
         data: {
           labels: ["Formation – 1ère année", "Formation – 2ème année", "Stage – Première année", "Stage – Seconde année"],
           datasets: [{
-            data: [20, 20, 15, 25], // Exemple de données, à ajuster selon vos statistiques
+            data: [20, 20, 15, 25], // Exemple, à ajuster selon vos statistiques
             backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e74c3c'],
             borderWidth: 1
           }]
